@@ -22,14 +22,14 @@ public class Option : MonoBehaviour
 
         is_option = false;
 
-        // °¢ ½½¶óÀÌ´õÀÇ °ªÀÌ ¹Ù²î¾úÀ» ¶§ ½ÇÇàÇÒ ¸Ş¼Òµå ¼³Á¤
+        // ê° ìŠ¬ë¼ì´ë”ì˜ ê°’ì´ ë°”ë€Œì—ˆì„ ë•Œ ì‹¤í–‰í•  ë©”ì†Œë“œ ì„¤ì •
         bgm_slider.onValueChanged.AddListener(ChangeBgmSound);
         sfx_slider.onValueChanged.AddListener(ChangeSfxSound);
     }
 
-    private void Update() { if (Input.GetKeyUp(KeyCode.Escape)) { OptionOnOff(); } }
+    private void Update() { if (Input.GetKeyDown(KeyCode.Escape)) { OptionOnOff(); } }
     
-    // ¿É¼ÇÃ¢À» ²°´Ù Ä×´ÙÇÔ
+    // ì˜µì…˜ì°½ì„ ê»ë‹¤ ì¼°ë‹¤í•¨
     public void OptionOnOff()
     {
         SoundManager.instance.PlaySound("button");
@@ -41,7 +41,7 @@ public class Option : MonoBehaviour
         Time.timeScale = is_option ? 0 : 1;
     }
 
-    // bgm, sfxÀÇ »ç¿îµå º¼·ıÀ» Á¶ÀıÇÔ
+    // bgm, sfxì˜ ì‚¬ìš´ë“œ ë³¼ë¥¨ì„ ì¡°ì ˆí•¨
     private void ChangeBgmSound(float value) { SoundManager.instance.bgm_volume = value; }
 
     private void ChangeSfxSound(float value) { SoundManager.instance.sfx_volume = value; }
